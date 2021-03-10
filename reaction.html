@@ -26,34 +26,37 @@
   <p id="countdown">Count</p>
   
   <script> 
-var myTime=undefined;
-  function recordReact() {
-      myTime=Date.now();
-      console.log(myTime);
-      return myTime;
-    
-  }
-
-  function startTime() {
-      for(let i=0;i<4;i++){
-          var j=(3-i)*1000;
-          var p=i;
-    setTimeout(() => {
-        //alert("hello"+p);
-      document.getElementById("countdown").innerHTML = i;
-    }, j)}
-    setTimeout(() => {
-        if(myTime == undefined)
-        document.getElementById("target").innerHTML = "Too Slow";
-        else{
-            var buttonTime = Date.now();
-            var diff=buttonTime-myTime;
-            document.getElementById("target").innerHTML = "Time was "+diff +" ms"
-            myTime=undefined
-        }
-    }, 3000)
-  }
-  </script>
+    var min=2
+    var max=10
+  var myTime=undefined;
+    function recordReact() {
+        myTime=Date.now();
+        console.log(myTime);
+        return myTime;
+      
+    }
+  
+    function startTime() {
+        var rand=Math.floor(Math.random()*(max-min)+min)
+        for(let i=0;i<rand+1;i++){
+            var j=(rand-i)*1000;
+            var p=i;
+      setTimeout(() => {
+          //alert("hello"+p);
+        document.getElementById("countdown").innerHTML = i;
+      }, j)}
+      setTimeout(() => {
+          if(myTime == undefined)
+          document.getElementById("target").innerHTML = "Too Slow";
+          else{
+              var buttonTime = Date.now();
+              var diff=buttonTime-myTime;
+              document.getElementById("target").innerHTML = "Time was "+diff+" ms"
+              myTime=undefined
+          }
+      }, rand*1000)
+    }
+    </script>
 
 </body>
 </html>
