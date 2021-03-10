@@ -37,7 +37,6 @@
     }
   
     function startTime() {
-      var buttonTime = Date.now();
         var rand=Math.floor(Math.random()*(max-min)+min)
         for(let i=0;i<rand+1;i++){
             var j=(rand-i)*1000;
@@ -50,7 +49,7 @@
           if(myTime == undefined)
           document.getElementById("target").innerHTML = "Too Slow";
           else{
-              
+              var buttonTime = Date.now();
               var diff=buttonTime-myTime;
               document.getElementById("target").innerHTML = "Time was "+diff+" ms"
               myTime=undefined
